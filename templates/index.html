@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Human Orientation Detection</title>
+    <style>
+        body {
+            background: #eef2f5;
+            font-family: Arial;
+        }
+        .box {
+            width: 450px;
+            background: #fff;
+            margin: 60px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        button {
+            background: #007bff;
+            padding: 10px 18px;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover { background: #0056b3; }
+        #preview {
+            margin-top: 15px;
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .result {
+            margin-top: 18px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h2>Human Orientation Detection</h2>
+
+        <form action="/predict-web" method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" required>
+            <br><br>
+            <button type="submit">Detect Orientation</button>
+        </form>
+
+        {% if result %}
+            <div class="result">Orientation: {{ result }}</div>
+        {% endif %}
+
+        {% if preview %}
+            <img id="preview" src="{{ preview }}">
+        {% endif %}
+    </div>
+
+</body>
+</html>

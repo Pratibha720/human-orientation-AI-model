@@ -1,0 +1,6 @@
+install these 
+
+flask
+mediapipe
+opencv-python
+numpy
